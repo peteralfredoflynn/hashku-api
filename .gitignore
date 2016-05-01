@@ -3,4 +3,4 @@
 .DS_STORE
 .idea/
 *.pyc
-
+staticfiles/
