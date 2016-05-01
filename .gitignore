@@ -1,0 +1,6 @@
+.direnv/
+.envrc
+.DS_STORE
+.idea/
+*.pyc
+
