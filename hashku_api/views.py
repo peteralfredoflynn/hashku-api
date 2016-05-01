@@ -4,25 +4,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
-# def thingy(request):
-#     consumer_key = '0wjaB6XoXdFcgM4mYsI2yHazY'
-#     consumer_secret = 'jxojv9ewbKkdCGqZhgHDryigWfHz0bJTQsSZSfg1Dxz4OAkPgl'
-#     access_token = '1695521534-Wew6PSOMWmdUjOooXHC6InSNMyHXtGWsG8mEVT6'
-#     access_token_secret = '1LDv8tXHT0vTUWL15JwDb7prbw0vU2XTuVyDYr5apc22B'
-#
-#     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-#     auth.set_access_token(access_token, access_token_secret)
-#
-#     api = tweepy.API(auth)
-#
-#     searched_tweets = api.search(q='#dogs')
-#
-#     tweets = []
-#     for tweet in searched_tweets:
-#         tweets.append(tweet.text)
-#
-#     return render(request, 'hashku_api/testing.html', {'tweets': tweets})
-
 @api_view(['GET', 'POST'])
 def hashku(request):
     if request.method == 'POST':
