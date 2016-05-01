@@ -24,11 +24,11 @@ from rest_framework.response import Response
 #     return render(request, 'hashku_api/testing.html', {'tweets': tweets})
 
 @api_view(['GET', 'POST'])
-def thingy(request):
+def hashku(request):
     if request.method == 'POST':
         data = request.data
-        word1 = data['word1']
-        word2 = data['word2']
+        word1 = "#" + data['word1']
+        word2 = "#" + data['word2']
         consumer_key = '0wjaB6XoXdFcgM4mYsI2yHazY'
         consumer_secret = 'jxojv9ewbKkdCGqZhgHDryigWfHz0bJTQsSZSfg1Dxz4OAkPgl'
         access_token = '1695521534-Wew6PSOMWmdUjOooXHC6InSNMyHXtGWsG8mEVT6'
@@ -74,4 +74,6 @@ def thingy(request):
             hashkus.append(hashku)
             tweet_number += 1
 
-    return Response({"hashkus": hashkus})
+        return Response({"hashkus": hashkus})
+    else:
+        return Response({"error": "You may only POST to this endpoint"})
