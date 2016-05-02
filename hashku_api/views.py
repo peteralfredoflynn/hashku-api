@@ -6,10 +6,21 @@ from rest_framework.response import Response
 
 @api_view(['GET', 'POST'])
 def hashku(request):
+    """
+    Example POST:
+    --------
+    {"word1": "library", "word2": "boob"}
+    """
     if request.method == 'POST':
         data = request.data
-        word1 = "#" + data['word1']
-        word2 = "#" + data['word2']
+        word1 = data.get('word1', None)
+        word2 = data.get('word2', None)
+
+        if not (word1 and word2):
+            return Response({"error": 'Please POST using word1 and word2'})
+
+        word1 = "#" + word1
+        word2 = "#" + word2
         consumer_key = '0wjaB6XoXdFcgM4mYsI2yHazY'
         consumer_secret = 'jxojv9ewbKkdCGqZhgHDryigWfHz0bJTQsSZSfg1Dxz4OAkPgl'
         access_token = '1695521534-Wew6PSOMWmdUjOooXHC6InSNMyHXtGWsG8mEVT6'
@@ -40,6 +51,9 @@ def hashku(request):
             tw2 = tweets2[tweet_number]
             word_list1 = tw1.split()
             word_list2 = tw2.split()
+
+            word_list1 = [word for word in word_list1 if word[0:8] != 'https://' and word != "RT"]
+            word_list2 = [word for word in word_list2 if word[0:8] != 'https://' and word != "RT"]
 
             count = min(len(word_list1), len(word_list2))
             index = 0
