@@ -7,10 +7,14 @@ from rest_framework.response import Response
 @api_view(['GET', 'POST'])
 def hashku(request):
     """
+
+
     To try it out, cut and paste the example into the form below.
     ### Example:
     > {"word1": "library", "word2": "boob"}
 
+    Hashku searches for tweets with , mashes the tweets up, and returns a list of silly hashkus.
+    By default it strips the tweets of any links. If you would like any additional customizations please let me know! [peter@peterflynn.net](mailto:peter@peterflynn.net?subject=I've got a suggestion for hashku!).
     """
     if request.method == 'POST':
         data = request.data
