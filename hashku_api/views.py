@@ -7,9 +7,10 @@ from rest_framework.response import Response
 @api_view(['GET', 'POST'])
 def hashku(request):
     """
-    Example POST:
-    --------
-    {"word1": "library", "word2": "boob"}
+    To try it out, cut and paste the example into the form below.
+    ### Example:
+    > {"word1": "library", "word2": "boob"}
+
     """
     if request.method == 'POST':
         data = request.data
